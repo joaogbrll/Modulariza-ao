@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+        <span class="s1">CarteiraDigital carteira </span><span class="s2">= </span><span class="s0">new </span><span class="s1">CarteiraDigital</span><span class="s2">();</span>
+        <span class="s0">int </span><span class="s1">opcao</span><span class="s2">;</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Bem-vindo à sua Carteira Digital!&quot;</span><span class="s2">);</span>
+
+        <span class="s0">do </span><span class="s2">{</span>
+            <span class="s1">menu</span><span class="s2">();</span>
+            <span class="s1">opcao </span><span class="s2">= </span><span class="s1">lerEntradaUsuario</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">);</span>
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">opcao</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s4">1</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Digite o valor para adicionar ao saldo: &quot;</span><span class="s2">);</span>
+                    <span class="s0">double </span><span class="s1">valorAdicionar </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextDouble</span><span class="s2">();</span>
+                    <span class="s1">carteira</span><span class="s2">.</span><span class="s1">adicionarSaldo</span><span class="s2">(</span><span class="s1">valorAdicionar</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s4">2</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Digite o valor do pagamento: &quot;</span><span class="s2">);</span>
+                    <span class="s0">double </span><span class="s1">valorPagamento </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextDouble</span><span class="s2">();</span>
+                    <span class="s1">carteira</span><span class="s2">.</span><span class="s1">realizarPagamento</span><span class="s2">(</span><span class="s1">valorPagamento</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s4">3</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Seu saldo atual é: R$&quot; </span><span class="s2">+ </span><span class="s1">carteira</span><span class="s2">.</span><span class="s1">verificarSaldo</span><span class="s2">());</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s4">4</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Obrigado por usar a sua Carteira Digital!&quot;</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">default</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Opção inválida. Tente novamente.&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+
+        <span class="s2">} </span><span class="s0">while </span><span class="s2">(</span><span class="s1">opcao </span><span class="s2">!= </span><span class="s4">4</span><span class="s2">);</span>
+
+        <span class="s1">scanner</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private static void </span><span class="s1">menu</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Escolha uma opção:&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;1 - Adicionar Saldo&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;2 - Realizar Pagamento&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;3 - Verificar Saldo&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;4 - Sair&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private static int </span><span class="s1">lerEntradaUsuario</span><span class="s2">(</span><span class="s1">Scanner scanner</span><span class="s2">) {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Usuário: &quot;</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+</pre>
+</body>
+</html>
